@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>视角</title>
+    <style>
+        #myparent {
+            width: 900px;
+            height: 100px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 100px 50px;
+            background-color: #f0f0f0;
+            box-shadow: inset 0 0 3px rgba(0, 0, 0, .35);
+            -webkit-transition: top .5s;
+            -moz-perspective: 201px;
+            -webkit-perspective: 201px;
+            perspective: 201px;
+            position: relative;
+            z-index: 2;
+            top: 0;
+        }
+
+        .piece {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            background-color: #cad5eb;
+            padding: 10px;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+    </style>
+
+
+</head>
+<body>
+<input type="text" id="myinput"/>
+<button type="button" id="mybtn">确定</button>
+<div id="myparent">
+
+    <div class="piece" style="transform: translateZ(0px); background-color:red;"></div>
+</div>
+<script src="../js/jQuery-2.1.4.min.js"></script>
+<script>
+    $("#mybtn").click(function () {
+        $(".piece").css("transform", "translateZ(" + $("#myinput").val() + "px) rotateY(45deg)");
+    })
+</script>
+</body>
+</html>

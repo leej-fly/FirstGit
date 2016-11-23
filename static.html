@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+<title>static定位</title>
+<style type="text/css">
+    /*如果元素position:relative,则位置相对于自身位置偏移*/
+    /*如果元素position:absolute择，则相当于浏览器进行偏移，如果需要相对父元素偏移，则父的position不能为默认的static,为其他任何都可以*/
+    /*固定定位，则是postion:fixed （狗屁膏药）存在浏览器的兼容性问题，一般用js脚本来代替，*/
+    div {
+        margin:10px;
+        padding:25px;
+        font-size:12px;
+        line-height:25px;
+    }
+    /*父元素*/
+    #father{
+        border: dotted #000000 5px;
+        width: 400px;
+        position: absolute ;
+    }
+
+    #first{
+        background-color: #0000FF;
+        border: dotted #ffff00 2px;
+        position: absolute;
+        right: 20px;
+        top: 50px;
+    }
+
+    #second{
+        background-color: #ffff00;
+        border: dotted #ffff00 2px;
+        position: static;
+    }
+
+    #third{
+        background-color: #1f7e9a;
+        border: dotted #ffff00 2px;
+        position: static;
+    }
+</style>
+</head>
+<body>
+<div id="father">
+  <div id="first">第一个DIV</div>
+  <div id="second">第二个DIV</div>
+  <div id="third">第三个DIV</div>
+</div>
+</body>
+</html>

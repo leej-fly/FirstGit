@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>盒子模型</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .box div {
+            width: 232px;
+            height: 211px;
+            /* background-color: #2aabd2;*/
+            /*   border-style: double;
+               border-color: #FF0000;
+               border-width: 5px;*/
+            border: double 5px #ffff00;
+            border-top-color: #5cb85c;
+            margin: 20px auto;
+            padding: 10px;
+        }
+
+        .box {
+            background-color: #2aabd2;
+            border: 1px #000000 solid;
+        }
+
+        .list {
+            background-color: #8b211e;
+            list-style: none;
+        }
+
+        .third{
+            padding: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div>
+        <img src="img/horse.jpg">
+    </div>
+    <div>
+        <img src="img/horse.jpg">
+    </div>
+    <div class="secord">
+        <img src="img/horse.jpg">
+    </div>
+    <div class="third">
+        <img src="img/horse.jpg">
+    </div>
+</div>
+<ul class="list">
+    <li>汽车1</li>
+    <li>汽车2</li>
+    <li>汽车3</li>
+</ul>
+</body>
+</html>

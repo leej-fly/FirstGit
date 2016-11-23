@@ -1,0 +1,69 @@
+<style>
+body{
+    width:2000px;
+    height:2000px;
+    margin:2% auto;
+    perspective: 2000px;
+}
+
+.mommy{
+    /*border:1px solid black;*/
+    width: 2000px;
+    height: 2000px;
+    position: absolute;
+    margin: auto;
+    left:0;right:0;top:0;bottom:0;
+    transform-style: preserve-3d;
+    animation: rotation 10s linear infinite;
+    -webkit-transform: translateZ( -2500px );
+}
+
+@keyframes rotation{
+    from{
+        -webkit-transform: translateZ( -2500px ) rotateY(0deg);
+    }
+    to{
+        -webkit-transform: translateZ( -2500px ) rotateY(360deg);
+    }
+}
+
+.mommy div{
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background:red;
+    top: -2px;
+    left: -2px;
+    -webkit-transform-style: preserve-3d;
+    /*transform-style: preserve-3d;*/
+    /*transform-style: preserve-3d;*/
+    /*animation: rotation 10s infinite linear reverse;*/
+}
+
+
+</style>
+<body>
+<div id="container" class="mommy">
+      
+</div>
+</body>
+
+<script src="js/jQuery-2.1.4.min.js"></script>
+<script>
+      var radius = 600;
+      var amount = 600;
+      for(var i = 0 ;i<amount ; i++){
+//          console.log(i)
+          var mydiv  = "<div id='"+i+"'></div>";
+          var x =  Math.cos((i/amount)*((Math.PI*2)))*radius + radius;
+          var y =   Math.sin((i/amount)*((Math.PI*2)))*radius + radius;
+          $("#container").append(mydiv);
+//          $("#" + i).css("transform","translate3d("+x+"px,"+y+"px,0px)");
+          var θ =(i / amount) * 120; //Theta
+          var δ = ((i / amount)-0.5) * Math.PI; //Delta
+          var x1 = radius * Math.cos(δ) * Math.cos(θ) + radius;
+          var y1 = radius * Math.cos(δ) * Math.sin(θ) + radius;
+         var  z1 = radius * Math.sin(δ);
+          $("#" + i).css("transform","translate3d("+x1+"px,"+y1+"px,"+z1+"px)");
+      }
+</script>

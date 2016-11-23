@@ -1,0 +1,79 @@
+<style>
+    body{
+        -webkit-perspective: 1500px;
+    }
+    .mommy{
+        width: 2000px;
+        height: 2000px;
+        position: absolute;
+        margin: auto;
+        left:0;right:0;top:0;bottom:0;
+
+        -webkit-transform-style: preserve-3d;
+        -webkit-transform: translateZ( -2500px );
+        /**/
+        -webkit-animation: rotation 10s linear infinite;
+
+
+
+    }
+    .mommy div{
+        width: 128px;
+        height: 128px;
+        background:green;
+        position: absolute;
+        line-height: 116px;
+        font-size: 80px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        opacity: 0.8;
+        -webkit-transform-style: preserve-3d;
+
+    }
+
+    @keyframes rotation{
+        from{
+            -webkit-transform: translateZ( -2500px ) rotateY(0deg);
+        }
+        to{
+            -webkit-transform: translateZ( -2500px ) rotateY(360deg);
+        }
+    }
+
+
+
+</style>
+
+<div id="container" class="mommy">
+
+</div>
+
+
+<script src="js/jQuery-2.1.4.min.js"></script>
+<script>
+    var amount = 300;
+    var radius = 1000;
+    for (var i = 1; i < amount; i++){
+
+        var $div = $('<div>'+i+'</div>').appendTo($('#container'));
+        var θ = (i / amount) * 120;
+        var δ = (i / amount - 0.5) * Math.PI;
+        var x = radius * Math.cos(δ) * Math.cos(θ) + radius;
+        var z = radius * Math.cos(δ) * Math.sin(θ);
+        var y = radius * Math.sin(δ) + radius;
+        var ry = 0;
+
+        console.log(x + ':' + y + ':' + z)
+
+        if(z < 0){
+            ry = 180 + Math.atan((x-radius)/z)* 180 / Math.PI;
+        }else{
+            ry = Math.atan((x-radius)/z)* 180 / Math.PI;
+        }
+
+        $div.css({'-webkit-transform':'translate3d('+x+'px, '+y+'px,'+z+'px) rotateY('+ry+'deg)'});
+
+    }
+
+</script>

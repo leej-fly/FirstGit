@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>display</title>
+    <style>
+        div{
+            border: dotted #ffff00 10px;
+            height: 100px;
+            width: 500px;
+            /*display: inline-block;*/
+        }
+        span{
+            border: dotted #ffff00 10px;
+        }
+        .hide{
+            display: none;
+        }
+        .inline{
+            display: inline;
+            width: 500px;
+            height: 100px;
+        }
+        .block{
+            display: block;
+            width: 500px;
+            height: 100px;
+        }
+
+        .inlineblock{
+            display: inline-block;
+            width: 500px;
+            height: 100px;
+        }
+    </style>
+
+</head>
+<body>
+    <!--块级元素 内联（行内）元素-->
+    <!--块级div p 独占一行，可以设置宽和高-->
+    <!--内联  a img span，不可以设置宽、高、padding margin，设置了也没用-->
+    <!--display使块级与内联元素进行转换-->
+    <!---->
+    <div>
+        这是第一个块级元素
+    </div>
+    <div class="inline">
+        这是第二个块级元素（设置为行内，则宽高没用）
+    </div>
+    <span class="block">
+            第一个内联元素（行内设置为块，则宽高有用）
+    </span>
+    <span class="hide">
+            第二个内联元素
+    </span>
+    <span class="inlineblock">
+           行内块元素（可设置宽高，但不独占一行）
+    </span>
+    <span class="inlineblock">
+           行内块元素（可设置宽高，但不独占一行）
+    </span>
+</body>
+</html>
